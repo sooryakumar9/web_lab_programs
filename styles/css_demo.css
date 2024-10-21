@@ -1,0 +1,71 @@
+
+h2 {
+    color: darkblue;
+    text-align: center;
+    font-size: 28px;
+    border-bottom: 2px solid #555;
+}
+
+
+h3 {
+    color: darkred;
+    font-size: 22px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+hr {
+    border: 1px solid #333;
+    margin: 20px 0;
+}
+
+p {
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+#container {
+    background-color: #f0f0f0;
+    padding: 15px;
+    border: 1px solid #ccc;
+    margin-bottom: 20px;
+}
+
+.highlight {
+    background-color: yellow;
+    font-weight: bold;
+}
+
+.emphasis {
+    font-style: italic;
+    color: green;
+}
+
+time {
+    color: purple;
+    font-weight: bold;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    border: 2px solid #555;
+}
+
+.responsive-image {
+    display: block;
+    margin: 0 auto;
+}
+
+a {
+    text-decoration: none;
+    color: blue;
+}
+
+a:hover {
+    text-decoration: underline;
+    color: darkblue;
+}
