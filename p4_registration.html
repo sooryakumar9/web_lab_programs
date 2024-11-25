@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,100 +7,52 @@
     <link rel="stylesheet" href="styles/p4_registration.css">
 </head>
 <body>
-
-    <h2>Registration Form</h2>
-
-    <form>
-        <table>
+  <h2>Registration Form</h2>
+  <!-- Parent Table -->
+  <table style="margin: 0 auto; border: 1px solid #ddd; padding: 20px; background-color: #f9f9f9; border-radius: 5px;">
+    <tr>
+      <td>
+        <form>
+          <!-- Form Table -->
+          <table>
             <tr>
-                <td>
-                  <label for="fname">
-                    First Name:
-                  </label>
-                </td>
-                <td>
-                  <input type="text" 
-                         id="fname" 
-                         name="fname">
-                </td>
+              <td><label for="fname">First Name:</label></td>
+              <td><input type="text" placeholder="First Name" id="fname" name="fname"></td>
             </tr>
             <tr>
-                <td>
-                  <label for="lname">
-                    Last Name:
-                  </label>
-                </td>
-                <td>
-                  <input type="text" 
-                         id="lname" 
-                         name="lname">
-                </td>
+              <td><label for="lname">Last Name:</label></td>
+              <td><input type="text" placeholder="Last Name" id="lname" name="lname"></td>
             </tr>
             <tr>
-                <td>
-                  <label for="email">
-                    Email:
-                  </label>
-                </td>
-                <td>
-                  <input type="email" 
-                         id="email" 
-                         name="email">
-                </td>
+              <td><label for="email">Email:</label></td>
+              <td><input type="email" placeholder="Email ID" id="email" name="email"></td>
             </tr>
             <tr>
-                <td>
-                  <label for="password">
-                    Password:
-                  </label>
-                </td>
-                <td>
-                  <input type="password" 
-                         id="password" 
-                         name="password">
-                </td>
+              <td><label for="password">Password:</label></td>
+              <td><input type="password" placeholder="Password" id="password" name="password"></td>
             </tr>
             <tr>
-                <td>
-                  Gender:
-                </td>
-                <td>
-                    <input type="radio" 
-                           id="male" 
-                           name="gender" 
-                           value="male">
-                    <label for="male">
-                      Male
-                    </label>
-                    <input type="radio" 
-                           d="female" 
-                          name="gender" 
-                          value="female">
-                    <label for="female">
-                      Female
-                    </label>
-                </td>
+              <td>Gender:</td>
+              <td>
+                <input type="radio" id="male" name="gender" value="male">
+                <label for="male">Male</label>
+                <input type="radio" id="female" name="gender" value="female">
+                <label for="female">Female</label>
+              </td>
             </tr>
             <tr>
-                <td>
-                  <label for="dob">
-                    Date of Birth:
-                  </label>
-                </td>
-                <td>
-                  <input type="date" 
-                         id="dob" 
-                        name="dob">
-                </td>
+              <td><label for="dob">Date of Birth:</label></td>
+              <td><input type="date" id="dob" name="dob"></td>
             </tr>
             <tr>
-                <td colspan="2">
-                    <input type="submit" 
-                           value="Register">
-                </td>
+              <td colspan="2" style="text-align: center;">
+                <input type="submit" value="Register">
+              </td>
             </tr>
-        </table>
-    </form>
-
+          </table>
+        </form>
+      </td>
+    </tr>
+  </table>
 </body>
 </html>
