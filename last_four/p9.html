@@ -1,57 +1,59 @@
-q   <!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html>
+<html>
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>jQuery Example</title>
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <style>
-    #box {
-      width: 100px;
-      height: 100px;
-      background-color: lightblue;
-      margin: 20px;
-      padding: 10px;
-    }
-
-    button {
-      margin: 10px;
-      padding: 10px;
-      cursor: pointer;
-    }
-  </style>
+    <title>jQuery Script</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: lightblue;
+            margin: 20px auto;
+            position: relative;
+        }
+    </style>
 </head>
 <body>
+    <h1>jQuery Demo</h1>
+    <p id="paragraph">This is a sample paragraph.</p>
+    <ul id="list">
+        <li>Item 1</li>
+        <li>Item 2</li>
+        <li>Item 3</li>
+    </ul>
 
-  <p id="paragraph">This is a paragraph.</p>
-  <ul id="list">
-    <li>Item 1</li>
-    <li>Item 2</li>
-    <li>Item 3</li>
-  </ul>
+    <button id="appendContent">Append Content</button>
+    <button id="animateBox">Animate Box</button>
+    <button id="changeColor">Change Color</button>
 
-  <div id="box">Box to Animate</div>
-  <button id="addContent">Add Content</button>
-  <button id="animateBox">Animate Box</button>
+    <div class="box"></div>
 
-  <script>
-    $(document).ready(function() {
-      $('#addContent').click(function() {
-        $('#paragraph').append(' Appended content to the paragraph.');
-        $('#list').append('<li>New List Item</li>');
-      });
-
-      $('#animateBox').click(function() {
-        $('#box').animate({
-          width: '200px',
-          height: '200px',
-          opacity: 0.5
-        }, 1000, function() {
-          $(this).css('background-color', 'orange');
-        });
-      });
-    });
-  </script>
-
+    <script src="script.js"></script>
 </body>
 </html>
+
+
+<script>
+  $(document).ready(function () {
+    $('#appendContent').click(function () {
+        $('#paragraph').append(' Appended text!');
+        $('#list').append('<li>Appended Item</li>');
+    });
+
+    $('#animateBox').click(function () {
+        $('.box').animate(
+            { left: '+=100px', height: '150px', width: '150px' },
+            1000
+        );
+    });
+
+    $('#changeColor').click(function () {
+        $('.box').css('background-color', 'lightgreen');
+    });
+});
+</script>
