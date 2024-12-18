@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Data Converter</title>
+</head>
+<body>
+  <h1>Data Converter</h1>
+
+  <h2>1. Convert JSON to Object</h2>
+  <textarea id="jsonInput" placeholder="Enter JSON"></textarea><br>
+  <button onclick="convertToObject()">Convert</button>
+  <pre id="objectResult"></pre>
+
+  <h2>2. Convert JSON Date to JavaScript Date</h2>
+  <input id="jsonDateInput" placeholder="Enter JSON date string"><br>
+  <button onclick="convertToDate()">Convert</button>
+  <p id="dateResult"></p>
+
+  <h2>3. a. JSON to CSV / CSV to JSON</h2>
+  <textarea id="jsonCsvInput" placeholder="Enter JSON array"></textarea><br>
+  <button onclick="convertJsonToCsv()">To CSV</button>
+  <textarea id="csvResult"></textarea><br>
+
+  <h2>3. b. CSV to JSON</h2>
+  <textarea id="csvInput" placeholder="Enter CSV"></textarea><br>
+  <button onclick="convertCsvToJson()">To JSON</button>
+  <textarea id="jsonResult"></textarea>
+
+  <h2>4. Generate Hash</h2>
+  <input id="stringInput" placeholder="Enter text"><br>
+  <button onclick="generateHash()">Generate</button>
+  <p id="hashResult"></p>
+
+  <script>
+    function convertToObject() {
+      try {
+        const input = document.getElementById('jsonInput').value;
+        const obj = JSON.parse(input);
+        document.getElementById('objectResult').textContent = JSON.stringify(obj, null, 2);
+      } catch (err) {
+        document.getElementById('objectResult').textContent = 'Invalid JSON';
+      }
+    }
+
+    function convertToDate() {
+      const input = document.getElementById('jsonDateInput').value;
+      const date = new Date(input);
+      document.getElementById('dateResult').textContent = isNaN(date) ? 'Invalid Date' : date.toString();
+    }
+
+    function convertJsonToCsv() {
+      try {
+        const json = JSON.parse(document.getElementById('jsonCsvInput').value);
+        const keys = Object.keys(json[0]).join(',');
+        const values = json.map(obj => Object.values(obj).join(',')).join('\n');
+        document.getElementById('csvResult').value = `${keys}\n${values}`;
+      } catch (err) {
+        document.getElementById('csvResult').value = 'Invalid JSON';
+      }
+    }
+
+    function convertCsvToJson() {
+      try {
+        const csv = document.getElementById('csvInput').value.split('\n');
+        const [keys, ...rows] = csv.map(row => row.split(','));
+        const json = rows.map(row => Object.fromEntries(keys.map((k, i) => [k, row[i]])));
+        document.getElementById('jsonResult').value = JSON.stringify(json, null, 2);
+      } catch (err) {
+        document.getElementById('jsonResult').value = 'Invalid CSV';
+      }
+    }
+
+    async function generateHash() {
+      const text = document.getElementById('stringInput').value;
+      const hashBuffer = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(text));
+      const hashArray = Array.from(new Uint8Array(hashBuffer));
+      const hash = hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+      document.getElementById('hashResult').textContent = hash;
+    }
+  </script>
+</body>
+</html>

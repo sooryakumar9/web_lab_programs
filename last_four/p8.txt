@@ -1,0 +1,84 @@
+Visitor Counter
+
+<?php
+// Track visitors using a file
+$file = "count.txt";
+
+// Create file if it doesn't exist
+if (!file_exists($file)) {
+    file_put_contents($file, 0);
+}
+
+// Read and increment count
+$count = (int)file_get_contents($file) + 1;
+file_put_contents($file, $count);
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Visitor Counter</title>
+</head>
+<body>
+    <h1>Welcome!</h1>
+    <p>Visitor Count: <?= $count; ?></p>
+</body>
+</html>
+
+
+
+Database Setup
+
+CREATE DATABASE SimpleDB;
+
+USE SimpleDB;
+
+CREATE TABLE Students (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100),
+    cgpa FLOAT
+);
+
+INSERT INTO Students (name, cgpa) VALUES
+('Alice', 8.5),
+('Bob', 7.9),
+('Charlie', 9.1),
+('David', 8.0);
+
+
+
+PHP Code: sort_students.php
+
+<?php
+// Connect to database
+$conn = new mysqli("localhost", "root", "", "SimpleDB");
+
+// Fetch records
+$result = $conn->query("SELECT * FROM Students");
+$students = $result->fetch_all(MYSQLI_ASSOC);
+
+// Sort using PHP's built-in sort
+usort($students, fn($a, $b) => $a['cgpa'] <=> $b['cgpa']);
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Sorted Students</title>
+</head>
+<body>
+    <h1>Student Records (Sorted by CGPA)</h1>
+    <table border="1">
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>CGPA</th>
+        </tr>
+        <?php foreach ($students as $student): ?>
+            <tr>
+                <td><?= $student['id']; ?></td>
+                <td><?= $student['name']; ?></td>
+                <td><?= $student['cgpa']; ?></td>
+            </tr>
+        <?php endforeach; ?>
+    </table>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AJAX Example</title>
+        <style>
+            body { font-family: Arial, sans-serif; padding: 20px; }
+            #content { margin-top: 20px; font-size: 16px; }
+            button { padding: 10px 15px; background-color: #4CAF50; color: white; border: none; cursor: pointer; }
+            button:hover { background-color: #45a049; }
+        </style>
+</head>
+<body>
+    <h1>AJAX Demo</h1>
+
+    <button onclick="loadTextWithoutJQuery()">Load Text (Without jQuery)</button>
+    <button onclick="loadTextWithJQuery()">Load Text (With jQuery)</button>
+    <button onclick="loadJSONWithJQuery()">Load JSON (With jQuery)</button>
+    <button onclick="parseJSONWithJQuery()">Parse JSON (With jQuery)</button>
+
+    <div id="content"></div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+
+    function loadTextWithoutJQuery() {
+        var xhr = new XMLHttpRequest();
+        xhr.open("GET", "sample.txt", true);
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState == 4 && xhr.status == 200) {
+                document.getElementById("content").innerText = xhr.responseText;
+            }
+        };
+        xhr.send();
+    }
+
+    function loadTextWithJQuery() {
+        $.ajax({
+            url: "sample.txt",
+            type: "GET",
+            success: function(data) {
+                $("#content").text(data);
+            }
+        });
+    }
+
+    function loadJSONWithJQuery() {
+        $.getJSON("data.json", function(data) {
+            let output = "Name: " + data.name + "<br>" + "Age: " + data.age;
+            $("#content").html(output);
+        });
+    }
+
+    function parseJSONWithJQuery() {
+        var jsonString = '{"name": "John", "age": 30}';
+        var jsonData = $.parseJSON(jsonString);
+        let output = "Name: " + jsonData.name + "<br>" + "Age: " + jsonData.age;
+        $("#content").html(output);
+    }
+    </script>
+</body>
+</html>

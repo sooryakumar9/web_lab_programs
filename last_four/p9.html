@@ -1,0 +1,57 @@
+q   <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>jQuery Example</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <style>
+    #box {
+      width: 100px;
+      height: 100px;
+      background-color: lightblue;
+      margin: 20px;
+      padding: 10px;
+    }
+
+    button {
+      margin: 10px;
+      padding: 10px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <p id="paragraph">This is a paragraph.</p>
+  <ul id="list">
+    <li>Item 1</li>
+    <li>Item 2</li>
+    <li>Item 3</li>
+  </ul>
+
+  <div id="box">Box to Animate</div>
+  <button id="addContent">Add Content</button>
+  <button id="animateBox">Animate Box</button>
+
+  <script>
+    $(document).ready(function() {
+      $('#addContent').click(function() {
+        $('#paragraph').append(' Appended content to the paragraph.');
+        $('#list').append('<li>New List Item</li>');
+      });
+
+      $('#animateBox').click(function() {
+        $('#box').animate({
+          width: '200px',
+          height: '200px',
+          opacity: 0.5
+        }, 1000, function() {
+          $(this).css('background-color', 'orange');
+        });
+      });
+    });
+  </script>
+
+</body>
+</html>
