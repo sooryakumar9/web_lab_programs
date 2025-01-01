@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Time Table</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+    }
+
+    h1, h2 {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    table {
+      margin: 20px auto;
+      width: 90%;
+      border-collapse: collapse;
+      border: 1px solid #000;
+    }
+
+    th, td {
+      padding: 10px;
+      text-align: center;
+      border: 1px solid #000;
+    }
+
+    th {
+      background-color: #0074D9;
+      color: white;
+    }
+
+    tfoot td {
+      background-color: #FFDC00;
+      font-weight: bold;
+    }
+
+    tr:nth-child(even) {
+      background-color: #DDDDDD;
+    }
+
+    tr:nth-child(odd) {
+      background-color: #FFFFFF;
+    }
+
+    .lab {
+      background-color: #2ECC40;
+      color: white;
+      font-weight: bold;
+    }
+
+    .elective {
+      background-color: #FF851B;
+      color: white;
+      font-weight: bold;
+    }
+
+    .lunch {
+      background-color: #AAAAAA;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <h1>JSS ACADEMY OF TECHNICAL EDUCATION BENGALURU</h1>
+  <h2>Computer Science and Engineering (CSE) Time Table<br>Batch: CSE - C3</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Day/Period</th>
+        <th>9:00 - 10:00</th>
+        <th>10:00 - 11:00</th>
+        <th>11:15 - 12:00</th>
+        <th>12:00 - 1:00</th>
+        <th>1:00 - 1:45</th>
+        <th>1:45 - 2:45</th>
+        <th>2:45 - 3:45</th>
+        <th>3:45 - 4:45</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><b>Monday</b></td>
+        <td>RM</td>
+        <td class="elective">AI</td>
+        <td>SE</td>
+        <td>TC</td>
+        <td rowspan="6" class="lunch">LUNCH</td>
+        <td colspan="2" class="lab">WEB LAB (PH, BNR C1)</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><b>Tuesday</b></td>
+        <td>RM</td>
+        <td>SE</td>
+        <td colspan="2" class="lab">WEB LAB (PH, BNR C2)</td>
+        <td>TC</td>
+        <td class="elective">AI</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><b>Wednesday</b></td>
+        <td>SE</td>
+        <td class="elective">AI</td>
+        <td>TC</td>
+        <td>CN</td>
+        <td colspan="3"></td>
+      </tr>
+      <tr>
+        <td><b>Thursday</b></td>
+        <td colspan="2" class="lab">CN LAB (KVS C1)</td>
+        <td>RM</td>
+        <td>SE</td>
+        <td class="elective">AI</td>
+        <td>CN</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><b>Friday</b></td>
+        <td>TC</td>
+        <td>EVS</td>
+        <td>CN</td>
+        <td>RM</td>
+        <td colspan="2" class="lab">CN LAB (KVS C2)</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><b>Saturday</b></td>
+        <td colspan="4" class="lab">NSS / YOGA / SPORTS</td>
+        <td colspan="3"></td>
+      </tr>
+    </tbody>
+    <tfoot>
+      <tr>
+        <td colspan="9">Note: Lab hours are highlighted in green, electives in orange, and lunch in gray.</td>
+      </tr>
+    </tfoot>
+  </table>
+
+</body>
+</html>

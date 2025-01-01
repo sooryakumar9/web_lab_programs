@@ -14,7 +14,7 @@ $count = (int)file_get_contents($file) + 1;
 file_put_contents($file, $count);
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <title>Visitor Counter</title>
 </head>
