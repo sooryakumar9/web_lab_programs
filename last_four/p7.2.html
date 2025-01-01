@@ -1,8 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Data Converter</title>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
   <style>
@@ -59,10 +57,7 @@
     function convertJsonToCsv() {
       try {
         const data = JSON.parse(document.getElementById('dataInput').value);
-        document.getElementById('result').innerText = [
-          Object.keys(data[0]).join(','),
-          ...data.map(row => Object.values(row).join(','))
-        ].join('\n');
+        document.getElementById('result').innerText = [ Object.keys(data[0]).join(','), ...data.map(row => Object.values(row).join(','))].join('\n');
       } catch {
         document.getElementById('result').innerText = 'Invalid JSON';
       }
