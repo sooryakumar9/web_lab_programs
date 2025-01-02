@@ -10,10 +10,10 @@
     }
 
     .form-container {
-      width: 300px;
+      width: 350px;
       margin: 50px auto;
       background-color: #e6f7ff;
-      padding: 20px;
+      padding: 15px;
       border: 1px solid #ccc;
       border-radius: 5px;
       box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
@@ -33,7 +33,7 @@
     }
 
     input[type="text"], input[type="email"], input[type="date"], input[type="password"] {
-      width: 100%;
+      width: 95%;
       padding: 8px;
       margin-bottom: 10px;
       border: 1px solid #ccc;
@@ -41,6 +41,7 @@
     }
 
     input[type="radio"] {
+      margin: 15px;
       margin-right: 5px;
     }
 
@@ -79,11 +80,9 @@
       <label for="department">Department:</label>
       <input type="text" id="department" name="department" placeholder="Enter Your Department" required>
 
-      <label for="gender">Gender:</label>
-      <input type="radio" id="male" name="gender" value="Male" required>
-      <label for="male">Male</label>
-      <input type="radio" id="female" name="gender" value="Female" required>
-      <label for="female">Female</label>
+      <p>Gender:<br>
+      <input type="radio" name="gender" value="Male"> Male
+      <input type="radio" name="gender" value="Female"> Female
 
       <input type="submit" value="Register">
     </form>
